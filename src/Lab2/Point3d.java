@@ -1,55 +1,40 @@
 package Lab2;
 
 /** 3-x мерный класс точки.*/
-public class Point3d {
-        /** координаты X,Y,Z */
-        private double xCoord;
-        private double yCoord;
-        private double zCoord;
+public class Point3d extends Point2d{
+    private double zCoord; // координата z
 
-        /** Конструктор инициализации*/
-        public Point3d(double x, double y, double z) {
-            xCoord = x;
-            yCoord = y;
-            zCoord = z;
-        }
+    public Point3d(double x, double y, double z) { //Конструктор инициализации
+        xCoord=x;
+        yCoord=y;
+        zCoord=z;
+    }
+    public Point3d() { //Конструктор по умолчанию .
+        this(0, 0, 0);
+    }
 
-        /**Конструктор по умолчанию.*/
-        public Point3d() {
-            this(0, 0, 0);
-        }
+    public double getZ() { // возвращение координаты z
+        return zCoord;
+    }
 
-        /** Возвращение координаты X,Y,Z*/
-        public double getX() {
-            return xCoord;
-        }
-        public double getY() {
-            return yCoord;
-        }
-        public double getZ() {
-            return zCoord;
-        }
-
-        /**Установка значения координаты X,Y,Z*/
-        public void setX(double val) {
-            xCoord = val;
-        }
-        public void setY(double val) {
-            yCoord = val;
-        }
-        public void setZ(double val) {
-            zCoord = val;
-        }
+    public void setZ(double val) { //Установка значения координаты Z
+        zCoord = val;
+    }
 
 
-        /**Проверяет совпадение точек*/
-        public static boolean eq(Point3d a, Point3d b) {
-            return (a.getX()==b.getX()) && (a.getY()==b.getY()) && (a.getZ()==b.getZ());
-        }
-        /**Высчитывает расстояние*/
-        public static double distanceTo(Point3d a, Point3d b) {
-            double dist = Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2) + Math.pow(a.getY() - b.getY(), 2));
-            return Math.abs(dist);
-        }
+    public static boolean eq(Point3d m,Point3d n) {
+        return (n.xCoord==m.xCoord & n.yCoord==m.yCoord & n.zCoord==m.zCoord);
+    }
+
+    public static double distanceTo(Point3d m, Point3d n) {
+        return Math.sqrt(Math.pow((m.xCoord - n.xCoord), 2) + Math.pow((m.yCoord - n.yCoord), 2) + Math.pow((m.zCoord - n.zCoord), 2));
+    }
+
+    public static double computeArea(Point3d a,Point3d b, Point3d c){
+        double p1=Point3d.distanceTo(a,b);
+        double p2=Point3d.distanceTo(b,c);
+        double p3=Point3d.distanceTo(a,c);
+        double Pp=(p1+p2+p3)/2;
+        return Math.sqrt(Pp*(Pp-p1)*(Pp-p2)*(Pp-p3));
+    }
 }
-
