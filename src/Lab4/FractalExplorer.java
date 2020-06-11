@@ -1,10 +1,14 @@
-package Lab4_6;
+package Lab4;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
@@ -37,8 +41,6 @@ public class FractalExplorer {
         JLabel label = new JLabel("Fractal: ");
         box = new JComboBox<>();// сoздание выпадающего списка
         box.addItem(new Mandelbrot());
-        box.addItem(new Tricorn());
-        box.addItem(new BurningShip());
         JPanel panelBox = new JPanel();
         panelBox.add(label);
         panelBox.add(box);

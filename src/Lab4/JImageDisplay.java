@@ -1,4 +1,4 @@
-package Lab4_6;
+package Lab4;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;

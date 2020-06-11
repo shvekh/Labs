@@ -1,4 +1,4 @@
-package Lab4_6;
+package Lab4;
 import java.awt.geom.Rectangle2D;
 
 

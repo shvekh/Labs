@@ -1,4 +1,4 @@
-package Lab4_6;
+package Lab5;
 import java.awt.geom.Rectangle2D;
 
 public class Tricorn extends FractalGenerator{
